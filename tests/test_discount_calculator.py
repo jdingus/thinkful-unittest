@@ -20,6 +20,12 @@ class CalculateDiscountTests(unittest.TestCase):
     def testPriceNegative(self):
         with self.assertRaises(Exception):
             sale_price = calculate_discount(-10,10,30)
+
+    def testResultNotNegative(self):
+        sale_price = calculate_discount(10,10,30)
+
+        # Check that the right values are returned
+        self.assertEqual(sale_price, 0)
 						
 if __name__ == "__main__":
     unittest.main()
